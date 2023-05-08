@@ -93,16 +93,20 @@ namespace bya::ui
             sf::FloatRect wagonBound = m_wagon.getGlobalBounds();
             if (detectionBound.contains(mousePos)) {
                 if (isOnTrack() && m_orientation == HORIZONTAL) {
+                    sf::Vector2f wagonPos = m_wagon.getPosition();
+                    wagonPos.x > m_internRail.getPosition().x ? wagonPos.x = m_wagon.getGlobalBounds().left + m_wagon.getGlobalBounds().width : wagonPos.x = m_wagon.getGlobalBounds().left;
                     m_wagon.move(diff.x, 0.f);
                     m_progress = math::dist(sf::Vector2f(railBound.left,
                         m_internRail.getPosition().y),
-                        m_wagon.getPosition()) /
+                        wagonPos) /
                         railBound.width;
                 } else if (isOnTrack() && m_orientation == VERTICAL) {
+                    sf::Vector2f wagonPos = m_wagon.getPosition();
+                    wagonPos.y > m_internRail.getPosition().y ? wagonPos.y = m_wagon.getGlobalBounds().top + m_wagon.getGlobalBounds().height : wagonPos.y = m_wagon.getGlobalBounds().top;
                     m_wagon.move(0.f, diff.y);
                     m_progress = math::dist(sf::Vector2f(m_internRail.getPosition().x,
                         railBound.top),
-                        m_wagon.getPosition()) /
+                        wagonPos) /
                         railBound.height;
                 }
             } else {
