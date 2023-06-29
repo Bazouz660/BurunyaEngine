@@ -44,7 +44,7 @@
                 sf::Vector2f m_lastPosition;
                 Orientation m_orientation;
                 Animation::Scaling m_scaling;
-                State m_state;
+                State m_state = IDLE;
                 gameObj::Box m_internRail;
                 gameObj::Box m_outerRail;
                 gameObj::Box m_wagon;

@@ -10,6 +10,7 @@
 #include "IScene.hpp"
 #include "Camera.hpp"
 #include "IUIelement.hpp"
+#include "SmokeEmitter.hpp"
 
 namespace bya
 {
@@ -31,6 +32,8 @@ namespace bya
 
     private:
         std::map<std::string, std::shared_ptr<ui::IUIelement>> m_UIelements;
+        std::shared_ptr<bya::effects::SmokeEmitter> m_emitter;
+        sf::RectangleShape m_background;
     };
 
 }

@@ -38,7 +38,7 @@
                 bool m_drawBox = true;
                 Animation::Spritesheet m_animation;
                 Animation::Scaling m_scaling;
-                State m_state;
+                State m_state = IDLE;
                 std::function<void(void)> m_callback = []() {};
         };
     }

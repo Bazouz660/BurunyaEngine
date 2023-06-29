@@ -6,8 +6,7 @@
 */
 
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <iostream>
+#include "common.hpp"
 
 constexpr char VERTEX_SHADER_SRC[] =
     "void main()                                                  \

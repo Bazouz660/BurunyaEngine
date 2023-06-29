@@ -11,8 +11,8 @@
     namespace bya {
         class nbgen {
             public:
-                static int between(int a, int b);
-                static float between(float a, float b);
+                static int between(int min, int max);
+                static float between(float min, float max);
                 static bool boolean();
             private:
                 nbgen();

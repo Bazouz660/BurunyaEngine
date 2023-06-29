@@ -15,13 +15,9 @@ sf::Sprite& Blur::apply(const sf::Texture &texture)
     m_textures[current_buffer].draw(sprite);
     // current_buffer = blurIteration(current_buffer, 1);
     for (int32_t i(0); i < m_iterations; i += 2)
-    {
         current_buffer = blurPass(current_buffer, i);
-    }
     for (int32_t i(m_iterations); i >= 0; i -= 3)
-    {
         current_buffer = blurPass(current_buffer, i);
-    }
     m_textures[current_buffer].display();
     m_result.setTexture(m_textures[current_buffer].getTexture());
     return m_result;

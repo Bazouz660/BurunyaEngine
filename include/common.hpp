@@ -11,7 +11,9 @@
     #define WINDOW_SIZE sf::Vector2u(1920, 1080)
 
     #define uptr std::unique_ptr
+    #define GRAVITY 9.81f
 
+    #include <stdint.h>
     #include <string>
     #include <iostream>
     #include <memory>

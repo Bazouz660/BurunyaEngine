@@ -31,6 +31,9 @@ void ResourceManager::loadAssets()
 
     // load game textures
     loadTexture("tileset", "asset/texture/tileset/dirt.png");
+
+    // load effects textures
+    loadTexture("smoke", "asset/texture/effect/smoke.png");
 }
 
 ResourceManager& ResourceManager::getInstance()

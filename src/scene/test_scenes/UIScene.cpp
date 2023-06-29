@@ -38,6 +38,17 @@ namespace bya
         addUIelement("button", button);
         addUIelement("slider", slider);
         addUIelement("progress", text);
+
+        m_background.setSize(sf::Vector2f(winSize.x, winSize.y));
+        m_background.setFillColor(sf::Color::Blue);
+
+        m_emitter = std::make_shared<bya::effects::SmokeEmitter>(getResource().getTexture("smoke"));
+        m_emitter->setPos(sf::Vector2f(winSize.x / 5, winSize.y / 2));
+        m_emitter->setPartSize(sf::Vector2f(20, 20));
+        m_emitter->setEjectForce(200);
+        m_emitter->setEmissionRate(20);
+        m_emitter->setAngle(180);
+        m_emitter->setPartLifeTime(1);
     }
 
     void UIScene::close()
@@ -62,12 +73,17 @@ namespace bya
     {
         auto slider = dynamic_cast<ui::Slider *>(m_UIelements["slider"].get());
         dynamic_cast<ui::Text *>(m_UIelements["progress"].get())->setString(std::to_string(slider->getProgress()));
+
+        m_emitter->update(dt);
     }
 
     void UIScene::render(sf::RenderTarget &target)
     {
+        target.draw(m_background);
         for (auto &[key, elem] : m_UIelements)
             elem->render(target);
+
+        m_emitter->draw(target);
     }
 
     void UIScene::addUIelement(const std::string& id, std::shared_ptr<ui::IUIelement> element)
