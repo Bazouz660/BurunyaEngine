@@ -28,6 +28,10 @@ namespace bya {
         float toDeg(float rad);
         float toRad(float deg);
 
+        float flip(float x);
+        float dumbPow(float x, uint32_t p);
+        float smoothStop(float t, uint32_t power);
+
         template <typename T>
         sf::Vector2<T> rotate(sf::Vector2<T> v, float angle)
         {

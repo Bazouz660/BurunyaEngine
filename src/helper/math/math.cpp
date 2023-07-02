@@ -92,5 +92,24 @@ namespace bya {
         {
             return (1-t) * v1 + t * v2;
         }
+
+        float flip(float x)
+        {
+            return 1 - x;
+        }
+
+        float dumbPow(float x, uint32_t p)
+        {
+            float res = 1.0f;
+            for (uint32_t i(p); i--;) {
+                res *= x;
+            }
+            return res;
+        }
+
+        float smoothStop(float t, uint32_t power)
+        {
+            return flip(dumbPow(flip(t), power));
+        }
     }
 }

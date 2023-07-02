@@ -18,7 +18,7 @@ namespace bya::effects {
         m_emissionRate = 100;
         m_partLifeTime = 3;
         m_partSize = {10, 10};
-        m_maxSize = m_partSize * 10.f;
+        m_maxSize = m_partSize * SMOKE_MAX_SCALE;
         m_partSpeed = 1;
         m_state = true;
         m_texture = getResource().getTexture("smoke");
@@ -86,7 +86,7 @@ namespace bya::effects {
 
                 part->pos += part->velocity * dt;
 
-                part->velocity = math::lerp(part->velocity, sf::Vector2f(0, 0), dt * 0.1f);
+                part->velocity = math::lerp(part->velocity, sf::Vector2f(0, 0), dt * 0.7f);
                 part->acceleration = math::lerp(part->acceleration, sf::Vector2f(0, 0), std::pow(dt, 0.4) * 0.1f);
 
                 part->rotation += part->rotationSpeed * dt;

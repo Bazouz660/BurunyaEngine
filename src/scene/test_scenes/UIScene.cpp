@@ -47,8 +47,8 @@ namespace bya
         m_emitter->setPartSize(sf::Vector2f(20, 20));
         m_emitter->setEjectForce(200);
         m_emitter->setEmissionRate(20);
-        m_emitter->setAngle(180);
-        m_emitter->setPartLifeTime(1);
+        m_emitter->setAngle(90);
+        m_emitter->setPartLifeTime(2);
     }
 
     void UIScene::close()
